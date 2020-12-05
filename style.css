@@ -1,3 +1,45 @@
 .wrapper-quotes{
     display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper-quotes h1{
+    color: #1e1f22;
+    font-size: 40px;
+    margin: 0;
+}
+.wrapper-quotes button{
+    width: 260px;
+    padding: 20px;
+    background-color: #4792d3;
+    border-radius: 7px;
+    border: 0;
+    font-size: 17px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none;
+}
+.wrapper-quotes button:hover{
+    background-color: #3374ac;
+}
+.text-quote{
+    font-family: Verdana, sans-serif;
+    font-size: 17px;
+    margin: 40px auto;
+    max-width: 660px;
+    text-align: center;
+    position: relative;
+}
+.text-quote::after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 1px;
+    background-color: #bdbdbd;
+    bottom: -18px;
+    right: 50%;
+    transform: translateX(50%);
 }
