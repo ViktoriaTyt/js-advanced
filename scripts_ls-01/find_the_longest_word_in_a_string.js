@@ -8,10 +8,10 @@ function findLongestWordLength(str) {
     var splitStr = str.split(' ');
     var maxSize,
         maxSizeArr = [];
-    splitStr.reduce(function(furstVal, currentVal, index) {
-        maxSizeArr.push(splitStr[index].length)
+    splitStr.forEach(function(item) {
+        maxSizeArr.push(item.length)
         maxSize = Math.max(...maxSizeArr);
     });
     return maxSize;
 }
-findLongestWordLength("The quick brown fox jumped over the lazy dog");
+console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));

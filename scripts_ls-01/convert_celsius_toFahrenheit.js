@@ -6,6 +6,6 @@
 // convert the Celsius temperature to Fahrenheit.
 
 function convertToF(celsius) {
-    return fahrenheit = celsius * (9/5) + 32;
+    return celsius * (9/5) + 32;
 }
 convertToF(20)
