@@ -15,7 +15,7 @@ function reverseString(str) {
     }
     return newReversedStr;
 }
-console.log(reverseString("hello"));
+reverseString("hello");
 
 //Method 2
 
@@ -23,7 +23,7 @@ function reverseString(str) {
     var b = str.split('').reverse().join('');
     return b;
 }
-console.log(reverseString("hello"));
+reverseString("hello");
 
 //Method 3
 
@@ -37,4 +37,4 @@ function reverseString(str) {
     str = arr.join('');
     return str;
 }
-console.log(reverseString("hello"));
+reverseString("hello");

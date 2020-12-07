@@ -11,14 +11,8 @@ var quotes = ['А вы знаете, у зимы есть свой запах �
     'Проживи три месяца зимы и получи четвёртый в подарок!'];
 
 function getRandomQuote(){
-    var getNumber = getRandomNumber(0, quotes.length);
-    p.innerHTML = quotes[getNumber]
-    console.log('p, button') //рандомная цитата тут
-}
-function getRandomNumber(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
+    var getNumber = Math.floor(Math.random() * quotes.length);
+    p.innerHTML = quotes[getNumber];
 }
 getRandomQuote()
 button.addEventListener('click', getRandomQuote)

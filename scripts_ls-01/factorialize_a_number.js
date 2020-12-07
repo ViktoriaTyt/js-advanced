@@ -12,7 +12,7 @@
 
 function factorialize(num) {
     //debugger
-    if(num ===0){
+    if(num ===0){    //функция factorialize рекурсивно вызывает саму себя до n === 0
         return 1
     }
     return num * factorialize(num-1)
@@ -30,5 +30,4 @@ function factorialize(num) {
     }
     return i;
 }
-//console.log(factorialize(5));
 
