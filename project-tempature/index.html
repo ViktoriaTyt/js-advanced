@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section id="current-weather-details">
+    <div class="general-info">
+        <div class="first">
+            <h2>Get weather at current location</h2>
+            <button id="get-weather">Get current weather</button>
+        </div>
+        <div class="city-indicators">
+            <h2> or enter city</h2>
+            <input type="text" placeholder="Enter city">
+            <button class="btn-temperature">Find out the weather</button>
+        </div>
+    </div>
+    <div class="all-indicators">
+       <p><span>Humidity: </span><span id="humidity">--</span></p>
+        <p><span>Pressure: </span> <span id="pressure">--</span></p>
+        <p><span>Temperature: </span><span id="temperature">--</span></p>
+        <p><span>Wind speed: </span><span id="wind-speed">--</span></p>
+    </div>
+    <p class="preloader"></p>
+</section>
+<script src="js.js"></script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 //
 // Boolean primitives are true and false.
 
-function booWho(bool) {s
+function booWho(bool) {
     if ((typeof bool === 'boolean')) {
         return true;
     }
