@@ -10,8 +10,6 @@ var preloader = document.querySelector('.preloader');
 var words = document.querySelector('.words');
 var errorCity = document.querySelector('.error-name');
 var nameCity = document.getElementById('name-city');
-var subjects = require('./city.list');
-console.log(subjects)
 var urlAPI,generalWeather;
 function getLocationCoords() {
     if(navigator.geolocation) {
@@ -112,6 +110,7 @@ recognition.lang = 'en-US';
 recognition.interimResults = true;
 var speechCity;
 recognition.addEventListener('result', function (event) {
+    getCityData()
     inputCity.innerText = Array
         .from(event.results)
         .map(function (result) {
@@ -134,5 +133,29 @@ recognition.addEventListener('result', function (event) {
 
 recognition.addEventListener('end', recognition.start);
 recognition.start();
+
+ function getCityData() {
+    fetch('https://raw.githubusercontent.com/ViktoriaTyt/js-advanced/main/project-tempature/city.list.json')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data)
+        trasformCityData(data)
+    })
+    .catch(function (error) {
+        console.log('error')
+    })
+}
+
+function trasformCityData(data) {
+    console.log('123');
+    //var dataCity;
+    for(let key in data[key]){
+        console.log(`${key} => ${data[key]}`)
+        console.log('qwe');
+    }
+
+}
 
 
