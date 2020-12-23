@@ -10,11 +10,12 @@
 function mutation(arr) {
     var firstElem = arr[0].toLowerCase();
     var secondElem = arr[1].toLowerCase();
-   for(var i = 0; i < firstElem.length; i+=1){
-       if(!(firstElem.indexOf(secondElem[i]) === -1)){
+    var i, size = firstElem.length;
+   for(i = 0; i < size; i+=1){
+       if(firstElem.includes(secondElem[i])){
            return true
        }
        return false
     }
 }
-mutation(["hello", "hey"])
+mutation(["hello", "hey"]);

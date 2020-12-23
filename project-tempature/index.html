@@ -15,13 +15,19 @@
             <button id="get-weather">Get current weather</button>
         </div>
         <div class="city-indicators">
-            <h2> or enter city</h2>
-            <input type="text" placeholder="Enter city">
-            <button class="btn-temperature">Find out the weather</button>
+            <h2> or Say city and say lol!</h2>
+            <div class="wrapper">
+                <input type="text" placeholder="Enter city" class="input-city">
+                <div class="wrapper-btns">
+                    <button class="btn-temperature">Find out the weather</button>
+                </div>
+            </div>
+            <p class="error-name"></p>
         </div>
     </div>
     <div class="all-indicators">
-       <p><span>Humidity: </span><span id="humidity">--</span></p>
+        <p><span id="name-city"></span></p>
+        <p><span>Humidity: </span><span id="humidity">--</span></p>
         <p><span>Pressure: </span> <span id="pressure">--</span></p>
         <p><span>Temperature: </span><span id="temperature">--</span></p>
         <p><span>Wind speed: </span><span id="wind-speed">--</span></p>

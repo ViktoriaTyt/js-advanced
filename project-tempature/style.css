@@ -27,6 +27,7 @@ button{
     cursor: pointer;
     font-size: 15px;
     transition: background-color, border 0.3s;
+    margin-bottom: 10px;
 }
 button:hover{
     background-color: #dedfff00;
@@ -45,8 +46,21 @@ button:focus, input:focus{
     border-radius: 3px;
     padding-left: 18px;
     border: 0;
+    margin-right: 20px;
 }
 .all-indicators{
     text-align: center;
     margin-top: 50px;
+}
+.wrapper{
+    display: flex;
+    align-items: center;
+}
+.wrapper-btns{
+    display: flex;
+    flex-direction: column;
+}
+#name-city{
+    font-size: 34px;
+    font-weight: 900;
 }

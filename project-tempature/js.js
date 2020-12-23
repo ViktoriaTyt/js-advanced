@@ -7,6 +7,11 @@ var getWeatherButton = document.getElementById('get-weather');
 var getWeatherByCity = document.querySelector('.btn-temperature');
 var inputCity = document.querySelector('.city-indicators input');
 var preloader = document.querySelector('.preloader');
+var words = document.querySelector('.words');
+var errorCity = document.querySelector('.error-name');
+var nameCity = document.getElementById('name-city');
+var subjects = require('./city.list');
+console.log(subjects)
 var urlAPI,generalWeather;
 function getLocationCoords() {
     if(navigator.geolocation) {
@@ -26,12 +31,17 @@ async function getWeatherData() {
             return response.json();
         })
         .then(function (data) {
+            errorCity.innerHTML = ' '
             displayData(data);
             console.log(data)
+        })
+        .catch(function (error) {
+            errorCity.innerHTML = 'Say correct city!'
         })
     let result = end();
     result = await response;
     displayWeatherColor(generalWeather);
+
 }
 
 function loader() {
@@ -47,6 +57,7 @@ function displayData(data) {
     pressure.innerText = data.main.pressure + ' mmHg.';
     windSpeed.innerText = data.wind.speed + ' м/с';
     generalWeather = data.weather[0].main;
+    nameCity.innerText =  data.name;
     console.log(generalWeather);
 }
 
@@ -93,3 +104,35 @@ function getIndicatorsCity() {
 }
 getWeatherButton.addEventListener('click', getLocationCoords);
 getWeatherByCity.addEventListener('click', getIndicatorsCity);
+
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+var recognition = new SpeechRecognition();
+recognition.lang = 'en-US';
+recognition.interimResults = true;
+var speechCity;
+recognition.addEventListener('result', function (event) {
+    inputCity.innerText = Array
+        .from(event.results)
+        .map(function (result) {
+            return result[0];
+        })
+        .map(function (result) {
+            console.log(result.transcript)
+            speechCity = result.transcript;
+            if(speechCity === 'lol'){
+                getIndicatorsCity()
+                speechCity = ' ';
+            }
+            return speechCity;
+        })
+
+    if(event.results[0].isFinal) {
+        inputCity.value  =  speechCity;
+    }
+})
+
+recognition.addEventListener('end', recognition.start);
+recognition.start();
+
+

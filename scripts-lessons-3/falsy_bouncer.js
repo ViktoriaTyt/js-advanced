@@ -2,14 +2,6 @@
 // Remove all falsy values from an array.
 
 function bouncer(arr) {
-    var newArr = [];
-    arr.forEach(function (item) {
-        var boolenItem = Boolean(item);
-        if(boolenItem){
-            newArr.push(item)
-        }
-    });
-    return newArr;
+    return arr.filter(Boolean)
 }
-
-bouncer([7, "ate", "", false, 9]);
+bouncer([7, "ate", "", false, 9])
