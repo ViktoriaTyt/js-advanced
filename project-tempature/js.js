@@ -10,6 +10,9 @@ var preloader = document.querySelector('.preloader');
 var words = document.querySelector('.words');
 var errorCity = document.querySelector('.error-name');
 var nameCity = document.getElementById('name-city');
+var possibleName = document.querySelector('.possible-name');
+var body = document.querySelector('body');
+var arrCity = [];
 var urlAPI,generalWeather;
 function getLocationCoords() {
     if(navigator.geolocation) {
@@ -31,10 +34,25 @@ async function getWeatherData() {
         .then(function (data) {
             errorCity.innerHTML = ' '
             displayData(data);
-            console.log(data)
         })
         .catch(function (error) {
             errorCity.innerHTML = 'Say correct city!'
+            var valInput = inputCity.value;
+            var arr = [];
+            arrCity.forEach(function (item) {
+                var i;
+                for(i = 0; i < 3; i+=1){
+                    if(valInput.includes(item[i])){
+                        arr.push(item)
+                        possibleName.innerHTML = arr[0];
+                    }
+                    return false
+                }
+            })
+            possibleName.addEventListener('click', function (e) {
+                var target = e.target;
+                inputCity.value = possibleName.textContent;
+            })
         })
     let result = end();
     result = await response;
@@ -110,7 +128,7 @@ recognition.lang = 'en-US';
 recognition.interimResults = true;
 var speechCity;
 recognition.addEventListener('result', function (event) {
-    getCityData()
+    //getCityData()
     inputCity.innerText = Array
         .from(event.results)
         .map(function (result) {
@@ -140,22 +158,20 @@ recognition.start();
         return response.json();
     })
     .then(function (data) {
-        console.log(data)
         trasformCityData(data)
     })
     .catch(function (error) {
         console.log('error')
     })
 }
+getCityData()
 
 function trasformCityData(data) {
-    console.log('123');
-    //var dataCity;
-    for(let key in data[key]){
-        console.log(`${key} => ${data[key]}`)
-        console.log('qwe');
+    for(let key in data){
+        var nameCity = data[key].name;
+        arrCity.push(nameCity)
     }
-
+    return arrCity;
 }
 
 

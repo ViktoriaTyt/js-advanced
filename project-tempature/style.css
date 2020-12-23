@@ -64,3 +64,8 @@ button:focus, input:focus{
     font-size: 34px;
     font-weight: 900;
 }
+.possible-name{
+    color: #153fa8;
+    font-weight: 300;
+    cursor: pointer;
+}
