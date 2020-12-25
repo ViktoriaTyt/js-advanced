@@ -41,14 +41,16 @@ async function getWeatherData() {
             var arr = [];
             arrCity.forEach(function (item) {
                 var i;
-                for(i = 0; i < 3; i+=1){
-                    if(valInput.includes(item[i])){
+                for(i = 0; i < (valInput.length)/2; i+=1){
+                    console.log((valInput.length)/2)
+                    if(item.includes(valInput.slice(0,3))){
+                        console.log(item)
                         arr.push(item)
-                        possibleName.innerHTML = arr[0];
+                        possibleName.innerHTML = arr[i];
                     }
                     return false
                 }
-            })
+            });
             possibleName.addEventListener('click', function (e) {
                 var target = e.target;
                 inputCity.value = possibleName.textContent;
@@ -152,26 +154,6 @@ recognition.addEventListener('result', function (event) {
 recognition.addEventListener('end', recognition.start);
 recognition.start();
 
- function getCityData() {
-    fetch('https://raw.githubusercontent.com/ViktoriaTyt/js-advanced/main/project-tempature/city.list.json')
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        trasformCityData(data)
-    })
-    .catch(function (error) {
-        console.log('error')
-    })
-}
-getCityData()
 
-function trasformCityData(data) {
-    for(let key in data){
-        var nameCity = data[key].name;
-        arrCity.push(nameCity)
-    }
-    return arrCity;
-}
 
 
