@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
+    <title>Image File Uploader</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div>
+
+    <div class="cover bodyBlackout"></div>
+    <h1 class="title">Your Image Uploader</h1>
+    <p class="sub_title">You can upload any image you want</p>
+    <input type="file" id="uploader" style="display: none" multiple accept="image/*">
+    <label for="uploader" id="selectButton">Select a file ...</label>
+    <div id="progress_bar">
+        <div class="percent">
+            0%
+        </div>
+    </div>
+    <div id="result"></div>
+    <ul class="images"></ul>
+    <div class="modal popupModal shadow">
+        <div class="remove-content">
+            <h2>Are yor sure?</h2>
+            <button class="btn-true">Yes</button>
+            <button class="btn-false">No</button>
+        </div>
+       <div class="scale-image-content">
+
+       </div>
+    </div>
+</div>
+
+<!--<script src="./leetcode/easy/String/string_matching.js"></script>-->
+<script src="./display-images.js"></script>
+<script src="./remove.js"></script>
+<script src="./edit.js"></script>
+<script src="./scale-image.js"></script>
+<script src="./js.js"></script>
+
+
+</body>
+</html>
